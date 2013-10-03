@@ -1,0 +1,8 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uk.org.ukfederation.idp.ext</groupId>
+  <artifactId>mrdpi-ext</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>MDRPI Filter IdP Extension</name>
+  <description>Filters attribute release based on SP MDRPI</description>
+</project>
