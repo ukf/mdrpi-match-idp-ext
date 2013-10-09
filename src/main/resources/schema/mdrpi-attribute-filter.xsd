@@ -1,0 +1,36 @@
+<schema targetNamespace="http://ukfederation.org.uk/schemas/mdrpi/filter" 
+        xmlns="http://www.w3.org/2001/XMLSchema"
+ 		xmlns:mdrpif="http://ukfederation.org.uk/schemas/mdrpi/filter"
+        xmlns:afp="urn:mace:shibboleth:2.0:afp"
+        elementFormDefault="qualified">
+
+    <import namespace="urn:mace:shibboleth:2.0:afp" schemaLocation="classpath:/schema/shibboleth-2.0-afp.xsd" />
+
+    <complexType name="AttributeRequesterMDRPI">
+        <annotation>
+            <documentation>
+                A match function that matches the SP (requester) MDRPI against a list of potential values.
+            </documentation>
+        </annotation>
+        <complexContent>
+            <extension base="afp:MatchFunctorType">
+                <attribute name="value" type="mdrpif:anyURIListType" use="required">
+                    <annotation>
+                        <documentation>The string value to match.</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="matchIfMetadataSilent" type="boolean">
+                    <annotation>
+                        <documentation>
+                            A boolean flag indicating whether a match should occur if the metadata does
+                            not contain an MDRPI statement (coded) default is false.
+                        </documentation>
+                    </annotation>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+	<simpleType name="anyURIListType">
+		<list itemType="anyURI"/>
+	</simpleType>
+</schema>
