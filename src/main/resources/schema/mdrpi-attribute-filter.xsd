@@ -14,7 +14,7 @@
         </annotation>
         <complexContent>
             <extension base="afp:MatchFunctorType">
-                <attribute name="value" type="mdrpif:anyURIListType" use="required">
+                <attribute name="issuers" type="mdrpif:anyURIListType" use="required">
                     <annotation>
                         <documentation>The string value to match.</documentation>
                     </annotation>

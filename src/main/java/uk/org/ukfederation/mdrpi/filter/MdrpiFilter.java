@@ -24,6 +24,11 @@ import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.m
  * This filter filters on mdrpi in the SP's metadata.
  */
 public class MdrpiFilter extends AbstractMatchFunctor {
+    
+    /** This issuers to match against */
+    private String issuers[];
+    
+    private boolean matchIfMetadataSilent;
 
     /** {@inheritDoc} */
     protected boolean doEvaluatePolicyRequirement(ShibbolethFilteringContext filterContext) throws FilterProcessingException {
@@ -36,6 +41,34 @@ public class MdrpiFilter extends AbstractMatchFunctor {
             Object attributeValue) throws FilterProcessingException {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    /**
+     * @return Returns the issuers.
+     */
+    public String[] getIssuers() {
+        return issuers;
+    }
+
+    /**
+     * @param issuers The issuers to set.
+     */
+    public void setIssuers(String issuers[]) {
+        this.issuers = issuers;
+    }
+
+    /**
+     * @return Returns the matchIfMetadataSilent.
+     */
+    public boolean isMatchIfMetadataSilent() {
+        return matchIfMetadataSilent;
+    }
+
+    /**
+     * @param matchIfMetadataSilent The matchIfMetadataSilent to set.
+     */
+    public void setMatchIfMetadataSilent(boolean matchIfMetadataSilent) {
+        this.matchIfMetadataSilent = matchIfMetadataSilent;
     }
 
 }
