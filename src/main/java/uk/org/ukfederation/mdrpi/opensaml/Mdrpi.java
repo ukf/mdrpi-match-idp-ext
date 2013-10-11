@@ -26,5 +26,4 @@ public interface Mdrpi {
     /** Default namespace prefix used by this library. */
     public static final String  MDRPI_PREFIX = "mdrpi";
 
-
 }

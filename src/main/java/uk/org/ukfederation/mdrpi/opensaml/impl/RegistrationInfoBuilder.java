@@ -15,22 +15,25 @@
  * limitations under the License.
  */
 
-package uk.org.ukfederation.mdrpi.opensaml;
+package uk.org.ukfederation.mdrpi.opensaml.impl;
 
-import javax.xml.namespace.QName;
+import org.opensaml.common.impl.AbstractSAMLObjectBuilder;
 
-import org.opensaml.samlext.saml2mdui.LocalizedURI;
+import uk.org.ukfederation.mdrpi.opensaml.Mdrpi;
+import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 
 /**
- *
+ * Summon up a new {@link RegistrationInfo}.
  */
-public interface RegistrationPolicy extends LocalizedURI {
-    
-    /** Name of the element inside the Extensions. */
-    public static final String DEFAULT_ELEMENT_LOCAL_NAME = "RegistrationPolicy";
+public class RegistrationInfoBuilder extends AbstractSAMLObjectBuilder<RegistrationInfo> {
 
-    /** Default element name. */
-    public static final QName DEFAULT_ELEMENT_NAME = new QName(Mdrpi.MDRPI_NS, DEFAULT_ELEMENT_LOCAL_NAME,
-            Mdrpi.MDRPI_PREFIX);
+    /** {@inheritDoc} */
+    public RegistrationInfo buildObject() {
+        return buildObject(Mdrpi.MDRPI_NS, RegistrationInfo.DEFAULT_ELEMENT_LOCAL_NAME, Mdrpi.MDRPI_PREFIX);
+    }
 
+    /** {@inheritDoc} */
+    public RegistrationInfo buildObject(String namespaceURI, String localName, String namespacePrefix) {
+        return new RegistrationInfoImpl(namespaceURI, localName, namespacePrefix);
+    }
 }

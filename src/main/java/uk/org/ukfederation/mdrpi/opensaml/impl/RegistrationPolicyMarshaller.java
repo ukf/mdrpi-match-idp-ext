@@ -14,23 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package uk.org.ukfederation.mdrpi.opensaml.impl;
 
-package uk.org.ukfederation.mdrpi.opensaml;
-
-import javax.xml.namespace.QName;
-
-import org.opensaml.samlext.saml2mdui.LocalizedURI;
+import org.opensaml.samlext.saml2mdui.impl.LocalizedURIMarshaller;
 
 /**
- *
+ * An marshaller for {@link uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy}.
  */
-public interface RegistrationPolicy extends LocalizedURI {
-    
-    /** Name of the element inside the Extensions. */
-    public static final String DEFAULT_ELEMENT_LOCAL_NAME = "RegistrationPolicy";
-
-    /** Default element name. */
-    public static final QName DEFAULT_ELEMENT_NAME = new QName(Mdrpi.MDRPI_NS, DEFAULT_ELEMENT_LOCAL_NAME,
-            Mdrpi.MDRPI_PREFIX);
+public class RegistrationPolicyMarshaller extends LocalizedURIMarshaller {
 
 }
