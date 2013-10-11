@@ -14,23 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package uk.org.ukfederation.mdrpi.opensaml.impl;
 
-package uk.org.ukfederation.mdrpi.opensaml;
+import org.opensaml.Configuration;
 
-import javax.xml.namespace.QName;
-
-import org.opensaml.samlext.saml2mdui.LocalizedURI;
+import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
+import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 
 /**
- *
+ * Class to bring together the registration of the providers.
  */
-public interface RegistrationPolicy extends LocalizedURI {
-    
-    /** Name of the element inside the Extensions. */
-    public static final String DEFAULT_ELEMENT_LOCAL_NAME = "RegistrationPolicy";
+public class MdrpiImpl {
 
-    /** Default element name. */
-    public static final QName DEFAULT_ELEMENT_NAME = new QName(Mdrpi.MDRPI_NS, DEFAULT_ELEMENT_LOCAL_NAME,
-            Mdrpi.MDRPI_PREFIX);
-
+    static public void configure() {
+        Configuration.registerObjectProvider(RegistrationInfo.DEFAULT_ELEMENT_NAME, new RegistrationInfoBuilder(), new RegistrationInfoMarshaller(), new RegistrationInfoUnmarshaller());
+        Configuration.registerObjectProvider(RegistrationPolicy.DEFAULT_ELEMENT_NAME, new RegistrationPolicyBuilder(), new RegistrationPolicyMarshaller(), new RegistrationPolicyUnmarshaller());
+    }
 }

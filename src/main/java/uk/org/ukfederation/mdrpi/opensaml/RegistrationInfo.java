@@ -45,10 +45,10 @@ public interface RegistrationInfo extends SAMLObject {
     public static final QName TYPE_NAME = new QName(Mdrpi.MDRPI_NS, TYPE_LOCAL_NAME, Mdrpi.MDRPI_PREFIX);
 
     /** Registration Authority attribute name. */
-    public String REGISTRATION_AUTHORITY__ATTRIB_NAME = "registrationAuthority";
+    public String REGISTRATION_AUTHORITY_ATTRIB_NAME = "registrationAuthority";
 
     /** Registration Instant attribute name. */
-    public String REGISTRATION_INSTANT__ATTRIB_NAME = "registrationInstant";
+    public String REGISTRATION_INSTANT_ATTRIB_NAME = "registrationInstant";
 
     /**
      * Get the registration authority.
@@ -85,10 +85,4 @@ public interface RegistrationInfo extends SAMLObject {
      */
     public List<RegistrationPolicy> getRegistrationPolicies();
 
-    /**
-     * Get the policies.
-     * 
-     * @param policies the list of policies
-     */
-    public void setRegistrationPolicies(List<RegistrationPolicy> policies);
 }
