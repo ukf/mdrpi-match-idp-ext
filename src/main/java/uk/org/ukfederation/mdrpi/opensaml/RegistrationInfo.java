@@ -55,40 +55,40 @@ public interface RegistrationInfo extends SAMLObject {
      * 
      * @return the registration authority
      */
-    public String GetRegistrationAuthority();
+    public String getRegistrationAuthority();
 
     /**
      * Set the registration authority.
      * 
      * @param authority the registration authority
      */
-    public void SetRegistrationAuthority(String authority);
+    public void setRegistrationAuthority(String authority);
 
     /**
      * Get the registration instant.
      * 
      * @return the registration instant
      */
-    public DateTime GetRegistrationInstant();
+    public DateTime getRegistrationInstant();
 
     /**
      * Set the registration instant.
      * 
      * @param dateTime the instant
      */
-    public void SetRegistrationInstant(DateTime dateTime);
+    public void setRegistrationInstant(DateTime dateTime);
 
     /**
      * Get the policies.
      * 
      * @return the list of policies
      */
-    public List<RegistrationPolicy> GetRegistrationPolicies();
+    public List<RegistrationPolicy> getRegistrationPolicies();
 
     /**
      * Get the policies.
      * 
      * @param policies the list of policies
      */
-    public void SetRegistrationPolicies(List<RegistrationPolicy> policies);
+    public void setRegistrationPolicies(List<RegistrationPolicy> policies);
 }
