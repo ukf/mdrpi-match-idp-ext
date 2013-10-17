@@ -21,7 +21,7 @@ import org.opensaml.samlext.saml2mdui.impl.LocalizedURIImpl;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 
 /**
- * Concrete implemenation of {@link RegistrationPolicy}.
+ * Concrete implementation of {@link RegistrationPolicy}.
  */
 public class RegistrationPolicyImpl extends LocalizedURIImpl implements RegistrationPolicy {
 
