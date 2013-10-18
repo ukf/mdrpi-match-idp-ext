@@ -62,7 +62,7 @@ public class RegistrationInfoImpl extends AbstractSAMLObject implements Registra
 
     /** {@inheritDoc} */
     public void setRegistrationAuthority(String authority) {
-        registrationAuthority = authority;
+        registrationAuthority = prepareForAssignment(registrationAuthority, authority);
     }
 
     /** {@inheritDoc} */
@@ -72,7 +72,7 @@ public class RegistrationInfoImpl extends AbstractSAMLObject implements Registra
 
     /** {@inheritDoc} */
     public void setRegistrationInstant(DateTime dateTime) {
-        registrationInstant = dateTime;
+        registrationInstant = prepareForAssignment(registrationInstant, dateTime);
     }
 
     /** {@inheritDoc} */
@@ -84,7 +84,7 @@ public class RegistrationInfoImpl extends AbstractSAMLObject implements Registra
     public List<XMLObject> getOrderedChildren() {
         ArrayList<XMLObject> children = new ArrayList<XMLObject>();
         children.addAll(registrationPolicies);
-        return null;
+        return children;
     }
 
 }
