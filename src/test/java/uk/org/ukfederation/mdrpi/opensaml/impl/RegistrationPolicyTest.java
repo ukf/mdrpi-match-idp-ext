@@ -17,22 +17,41 @@
 package uk.org.ukfederation.mdrpi.opensaml.impl;
 
 import org.opensaml.common.BaseSAMLObjectProviderTestCase;
+import org.opensaml.saml2.metadata.LocalizedString;
+
+import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 
 /**
  *
  */
 public class RegistrationPolicyTest extends BaseSAMLObjectProviderTestCase {
 
+    /**
+     * Constructor.
+     */
+    public RegistrationPolicyTest() {
+        MdrpiImpl.configure();
+        singleElementFile = "/uk/org/ukfederation/mdrpi/opensaml/RegistrationPolicy.xml";
+    }
+
     /** {@inheritDoc} */
     public void testSingleElementUnmarshall() {
-        // TODO Auto-generated method stub
-
+        RegistrationPolicy policy = (RegistrationPolicy) unmarshallElement(singleElementFile);
+        assertEquals(policy.getXMLLang(), "en");
+        assertEquals(policy.getURI().getLocalString(), "https://www.aai.dfn.de/en/join/");
+        assertEquals(policy.getURI().getLanguage(), "en");
     }
 
     /** {@inheritDoc} */
     public void testSingleElementMarshall() {
-        // TODO Auto-generated method stub
+        RegistrationPolicy policy = (RegistrationPolicy) buildXMLObject(RegistrationPolicy.DEFAULT_ELEMENT_NAME);
 
+        LocalizedString string = new LocalizedString();
+        string.setLocalizedString("https://www.aai.dfn.de/en/join/");
+        policy.setURI(string);
+        policy.setXMLLang("en");
+
+        assertEquals(expectedDOM, policy);
     }
 
 }
