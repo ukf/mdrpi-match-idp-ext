@@ -20,6 +20,7 @@ import org.opensaml.Configuration;
 
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
+import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
 
 /**
  * Class to bring together the registration of the providers.
@@ -29,5 +30,7 @@ public class MdrpiImpl {
     static public void configure() {
         Configuration.registerObjectProvider(RegistrationInfo.DEFAULT_ELEMENT_NAME, new RegistrationInfoBuilder(), new RegistrationInfoMarshaller(), new RegistrationInfoUnmarshaller());
         Configuration.registerObjectProvider(RegistrationPolicy.DEFAULT_ELEMENT_NAME, new RegistrationPolicyBuilder(), new RegistrationPolicyMarshaller(), new RegistrationPolicyUnmarshaller());
+
+        Configuration.registerObjectProvider(UsagePolicy.DEFAULT_ELEMENT_NAME, new UsagePolicyBuilder(), new UsagePolicyMarshaller(), new UsagePolicyUnmarshaller());
     }
 }
