@@ -40,7 +40,7 @@ public class RegistrationInfoImpl extends AbstractSAMLObject implements Registra
     /** The authority */
     private String registrationAuthority;
 
-    /** The instant */
+    /** The registration instant */
     private DateTime registrationInstant;
 
     /**
@@ -86,5 +86,4 @@ public class RegistrationInfoImpl extends AbstractSAMLObject implements Registra
         children.addAll(registrationPolicies);
         return children;
     }
-
 }
