@@ -79,7 +79,7 @@ public interface RegistrationInfo extends SAMLObject {
     public void setRegistrationInstant(DateTime dateTime);
 
     /**
-     * Get the policies.
+     * Get the {@link RegistrationPolicy}s.
      * 
      * @return the list of policies
      */
