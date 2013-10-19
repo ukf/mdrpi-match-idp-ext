@@ -16,25 +16,19 @@
  */
 package uk.org.ukfederation.mdrpi.opensaml.impl;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.joda.time.DateTime;
 import org.opensaml.common.impl.AbstractSAMLObject;
 import org.opensaml.xml.XMLObject;
-import org.opensaml.xml.util.IndexedXMLObjectChildrenList;
-import org.opensaml.xml.util.XMLObjectChildrenList;
 
-import uk.org.ukfederation.mdrpi.opensaml.PublicationInfo;
-import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
+import uk.org.ukfederation.mdrpi.opensaml.Publication;
 
 /**
- * Concrete {@link PublicationInfo}.
+ * A concrete {@link Publication}.
  */
-public class PublicationInfoImpl extends AbstractSAMLObject implements PublicationInfo {
-
-    /** The policies. */
-    private XMLObjectChildrenList<UsagePolicy> usagePolicies;
+public class PublicationImpl extends AbstractSAMLObject implements Publication {
 
     /** The publisher. */
     private String publisher;
@@ -52,10 +46,10 @@ public class PublicationInfoImpl extends AbstractSAMLObject implements Publicati
      * @param elementLocalName the local name of the XML element this Object represents
      * @param namespacePrefix the prefix for the given namespace
      */
-    protected PublicationInfoImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+    protected PublicationImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
         super(namespaceURI, elementLocalName, namespacePrefix);
-        usagePolicies = new IndexedXMLObjectChildrenList<UsagePolicy>(this);
     }
+
 
     /** {@inheritDoc} */
     public String getPublisher() {
@@ -88,15 +82,8 @@ public class PublicationInfoImpl extends AbstractSAMLObject implements Publicati
     }
 
     /** {@inheritDoc} */
-    public List<UsagePolicy> getUsagePolicies() {
-        return usagePolicies;
-    }
-
-    /** {@inheritDoc} */
     public List<XMLObject> getOrderedChildren() {
-        ArrayList<XMLObject> children = new ArrayList<XMLObject>();
-        children.addAll(usagePolicies);
-        return children;
+        return Collections.<XMLObject>emptyList();
     }
 
 }

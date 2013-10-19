@@ -14,36 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.org.ukfederation.mdrpi.opensaml.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joda.time.DateTime;
 import org.opensaml.common.impl.AbstractSAMLObject;
 import org.opensaml.xml.XMLObject;
 import org.opensaml.xml.util.IndexedXMLObjectChildrenList;
 import org.opensaml.xml.util.XMLObjectChildrenList;
 
-import uk.org.ukfederation.mdrpi.opensaml.PublicationInfo;
-import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
+import uk.org.ukfederation.mdrpi.opensaml.Publication;
+import uk.org.ukfederation.mdrpi.opensaml.PublicationPath;
 
 /**
- * Concrete {@link PublicationInfo}.
+ * A concrete {@link PublicationPath}.
  */
-public class PublicationInfoImpl extends AbstractSAMLObject implements PublicationInfo {
+public class PublicationPathImpl extends AbstractSAMLObject implements PublicationPath {
 
     /** The policies. */
-    private XMLObjectChildrenList<UsagePolicy> usagePolicies;
-
-    /** The publisher. */
-    private String publisher;
-
-    /** The creation instant. */
-    private DateTime creationInstant;
-
-    /** The publicationId. */
-    private String publicationId;
+    private XMLObjectChildrenList<Publication> publications;
 
     /**
      * Constructor.
@@ -52,51 +43,20 @@ public class PublicationInfoImpl extends AbstractSAMLObject implements Publicati
      * @param elementLocalName the local name of the XML element this Object represents
      * @param namespacePrefix the prefix for the given namespace
      */
-    protected PublicationInfoImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
+    protected PublicationPathImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
         super(namespaceURI, elementLocalName, namespacePrefix);
-        usagePolicies = new IndexedXMLObjectChildrenList<UsagePolicy>(this);
+        publications = new IndexedXMLObjectChildrenList<Publication>(this);
     }
 
     /** {@inheritDoc} */
-    public String getPublisher() {
-        return publisher;
-    }
-
-    /** {@inheritDoc} */
-    public void setPublisher(String thePublisher) {
-        publisher = prepareForAssignment(publisher, thePublisher);
-    }
-
-    /** {@inheritDoc} */
-    public DateTime getCreationInstant() {
-        return creationInstant;
-    }
-
-    /** {@inheritDoc} */
-    public void setCreationInstant(DateTime dateTime) {
-        creationInstant = prepareForAssignment(creationInstant, dateTime);
-    }
-
-    /** {@inheritDoc} */
-    public String getPublicationId() {
-        return publicationId;
-    }
-
-    /** {@inheritDoc} */
-    public void setPublicationId(String id) {
-        publicationId = prepareForAssignment(publicationId, id);
-    }
-
-    /** {@inheritDoc} */
-    public List<UsagePolicy> getUsagePolicies() {
-        return usagePolicies;
+    public List<Publication> getPublications() {
+        return publications;
     }
 
     /** {@inheritDoc} */
     public List<XMLObject> getOrderedChildren() {
         ArrayList<XMLObject> children = new ArrayList<XMLObject>();
-        children.addAll(usagePolicies);
+        children.addAll(publications);
         return children;
     }
-
 }
