@@ -18,6 +18,7 @@ package uk.org.ukfederation.mdrpi.opensaml.impl;
 
 import org.opensaml.Configuration;
 
+import uk.org.ukfederation.mdrpi.opensaml.PublicationInfo;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
@@ -31,6 +32,7 @@ public class MdrpiImpl {
         Configuration.registerObjectProvider(RegistrationInfo.DEFAULT_ELEMENT_NAME, new RegistrationInfoBuilder(), new RegistrationInfoMarshaller(), new RegistrationInfoUnmarshaller());
         Configuration.registerObjectProvider(RegistrationPolicy.DEFAULT_ELEMENT_NAME, new RegistrationPolicyBuilder(), new RegistrationPolicyMarshaller(), new RegistrationPolicyUnmarshaller());
 
+        Configuration.registerObjectProvider(PublicationInfo.DEFAULT_ELEMENT_NAME, new PublicationInfoBuilder(), new PublicationInfoMarshaller(), new PublicationInfoUnmarshaller());
         Configuration.registerObjectProvider(UsagePolicy.DEFAULT_ELEMENT_NAME, new UsagePolicyBuilder(), new UsagePolicyMarshaller(), new UsagePolicyUnmarshaller());
     }
 }
