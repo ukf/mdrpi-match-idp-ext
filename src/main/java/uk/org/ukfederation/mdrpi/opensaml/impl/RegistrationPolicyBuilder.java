@@ -19,7 +19,6 @@ package uk.org.ukfederation.mdrpi.opensaml.impl;
 import org.opensaml.common.impl.AbstractSAMLObjectBuilder;
 
 import uk.org.ukfederation.mdrpi.opensaml.Mdrpi;
-import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 
 /**
@@ -30,7 +29,7 @@ public class RegistrationPolicyBuilder extends AbstractSAMLObjectBuilder<Registr
     /** {@inheritDoc} */
     public RegistrationPolicy buildObject() {
         return buildObject(Mdrpi.MDRPI_NS, 
-                RegistrationInfo.DEFAULT_ELEMENT_LOCAL_NAME, 
+                RegistrationPolicy.DEFAULT_ELEMENT_LOCAL_NAME,
                 Mdrpi.MDRPI_PREFIX);
     }
 
