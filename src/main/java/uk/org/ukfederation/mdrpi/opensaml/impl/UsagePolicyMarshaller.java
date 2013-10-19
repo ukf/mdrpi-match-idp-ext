@@ -19,7 +19,7 @@ package uk.org.ukfederation.mdrpi.opensaml.impl;
 import org.opensaml.samlext.saml2mdui.impl.LocalizedURIMarshaller;
 
 /**
- * An marshaller for {@link uk.org.ukfederation.mdrpi.opensaml.UsagePolic}.
+ * An marshaller for {@link uk.org.ukfederation.mdrpi.opensaml.UsagePolicy}.
  */
 public class UsagePolicyMarshaller extends LocalizedURIMarshaller {
 
