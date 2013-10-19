@@ -30,7 +30,7 @@ import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 
 /**
- * Conrete Implementation of {@link RegistrationInfo}.
+ * Concrete Implementation of {@link RegistrationInfo}.
  */
 public class RegistrationInfoImpl extends AbstractSAMLObject implements RegistrationInfo {
 
