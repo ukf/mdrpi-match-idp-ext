@@ -96,7 +96,7 @@ public interface PublicationInfo extends SAMLObject {
     public void setPublicationId(String publicationId);
 
     /**
-     * Get the policies.
+     * Get the {@link UsagePolicy}s.
      *
      * @return the list of policies
      */
