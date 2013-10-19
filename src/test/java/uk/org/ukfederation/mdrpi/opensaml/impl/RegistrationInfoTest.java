@@ -40,6 +40,7 @@ public class RegistrationInfoTest extends BaseSAMLObjectProviderTestCase {
     public RegistrationInfoTest() {
         MdrpiImpl.configure();
         singleElementFile = "/uk/org/ukfederation/mdrpi/opensaml/RegistrationInfo.xml";
+        singleElementOptionalAttributesFile = "/uk/org/ukfederation/mdrpi/opensaml/RegistrationInfoOptionalAttr.xml";
         childElementsFile = "/uk/org/ukfederation/mdrpi/opensaml/RegistrationInfoChildren.xml";
     }
 
@@ -47,20 +48,33 @@ public class RegistrationInfoTest extends BaseSAMLObjectProviderTestCase {
     public void testSingleElementUnmarshall() {
         RegistrationInfo info = (RegistrationInfo) unmarshallElement(singleElementFile);
         assertEquals(info.getRegistrationAuthority(), expectedAuthority);
-        assertEquals(info.getRegistrationInstant(), expectedRegistrationInstant);
     }
 
+    /** {@inheritDoc} */
+    public void testSingleElementOptionalAttributesUnmarshall() {
+        RegistrationInfo info = (RegistrationInfo) unmarshallElement(singleElementOptionalAttributesFile);
+        assertEquals(info.getRegistrationAuthority(), expectedAuthority);
+        assertEquals(info.getRegistrationInstant(), expectedRegistrationInstant);
+    }
 
     /** {@inheritDoc} */
     public void testSingleElementMarshall() {
         RegistrationInfo info = (RegistrationInfo) buildXMLObject(RegistrationInfo.DEFAULT_ELEMENT_NAME);
 
         info.setRegistrationAuthority(expectedAuthority);
-        info.setRegistrationInstant(expectedRegistrationInstant);
 
         assertEquals(expectedDOM, info);
     }
 
+    /** {@inheritDoc} */
+    public void testSingleElementOptionalAttributesMarshall() {
+        RegistrationInfo info = (RegistrationInfo) buildXMLObject(RegistrationInfo.DEFAULT_ELEMENT_NAME);
+
+        info.setRegistrationAuthority(expectedAuthority);
+        info.setRegistrationInstant(expectedRegistrationInstant);
+
+        assertEquals(expectedOptionalAttributesDOM, info);
+    }
     public void testChildElementsUnmarshall() {
         RegistrationInfo info = (RegistrationInfo) unmarshallElement(childElementsFile);
         assertEquals(info.getRegistrationAuthority(), expectedAuthority);
