@@ -14,11 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.org.ukfederation.mdrpi.opensaml.impl;
 
 import org.opensaml.Configuration;
 
+import uk.org.ukfederation.mdrpi.opensaml.Publication;
 import uk.org.ukfederation.mdrpi.opensaml.PublicationInfo;
+import uk.org.ukfederation.mdrpi.opensaml.PublicationPath;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
@@ -29,10 +32,19 @@ import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
 public class MdrpiImpl {
 
     static public void configure() {
-        Configuration.registerObjectProvider(RegistrationInfo.DEFAULT_ELEMENT_NAME, new RegistrationInfoBuilder(), new RegistrationInfoMarshaller(), new RegistrationInfoUnmarshaller());
-        Configuration.registerObjectProvider(RegistrationPolicy.DEFAULT_ELEMENT_NAME, new RegistrationPolicyBuilder(), new RegistrationPolicyMarshaller(), new RegistrationPolicyUnmarshaller());
+        Configuration.registerObjectProvider(RegistrationInfo.DEFAULT_ELEMENT_NAME, new RegistrationInfoBuilder(),
+                new RegistrationInfoMarshaller(), new RegistrationInfoUnmarshaller());
+        Configuration.registerObjectProvider(RegistrationPolicy.DEFAULT_ELEMENT_NAME, new RegistrationPolicyBuilder(),
+                new RegistrationPolicyMarshaller(), new RegistrationPolicyUnmarshaller());
 
-        Configuration.registerObjectProvider(PublicationInfo.DEFAULT_ELEMENT_NAME, new PublicationInfoBuilder(), new PublicationInfoMarshaller(), new PublicationInfoUnmarshaller());
-        Configuration.registerObjectProvider(UsagePolicy.DEFAULT_ELEMENT_NAME, new UsagePolicyBuilder(), new UsagePolicyMarshaller(), new UsagePolicyUnmarshaller());
+        Configuration.registerObjectProvider(PublicationInfo.DEFAULT_ELEMENT_NAME, new PublicationInfoBuilder(),
+                new PublicationInfoMarshaller(), new PublicationInfoUnmarshaller());
+        Configuration.registerObjectProvider(UsagePolicy.DEFAULT_ELEMENT_NAME, new UsagePolicyBuilder(),
+                new UsagePolicyMarshaller(), new UsagePolicyUnmarshaller());
+
+        Configuration.registerObjectProvider(Publication.DEFAULT_ELEMENT_NAME, new PublicationBuilder(),
+                new PublicationMarshaller(), new PublicationUnmarshaller());
+        Configuration.registerObjectProvider(PublicationPath.DEFAULT_ELEMENT_NAME, new PublicationPathBuilder(),
+                new PublicationPathMarshaller(), new PublicationPathUnmarshaller());
     }
 }
