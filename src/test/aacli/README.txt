@@ -1,0 +1,1 @@
+Before running aacli, you will need to set the absolute paths correctly in all the xml files. Look for the tag <!--CHANGEME-->
