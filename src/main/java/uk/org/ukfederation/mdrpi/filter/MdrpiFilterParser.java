@@ -51,17 +51,15 @@ public class MdrpiFilterParser extends BaseFilterBeanDefinitionParser {
     /** {@inheritDoc} */
     protected void doParse(Element configElement, ParserContext parserContext, BeanDefinitionBuilder builder) {
     
-    
         super.doParse(configElement, parserContext, builder);
 
-        boolean flag = false;
-
+        boolean matchIfSilent = false;
         if (configElement.hasAttributeNS(null, MATCH_IF_METADATA_SILENT_ATTR_NAME)) {
-            flag = XMLHelper.getAttributeValueAsBoolean(
+            matchIfSilent = XMLHelper.getAttributeValueAsBoolean(
                     configElement.getAttributeNodeNS(null, MATCH_IF_METADATA_SILENT_ATTR_NAME));
         }
-        log.debug("MDRPI Filter: Match if Metadata silent = {}", flag);
-        builder.addPropertyValue("matchIfMetadataSilent", flag);
+        log.debug("MDRPI Filter: Match if Metadata silent = {}", matchIfSilent);
+        builder.addPropertyValue("matchIfMetadataSilent", matchIfSilent);
 
         final Attr attr = configElement.getAttributeNodeNS(null, ISSUERS_ATTR_NAME);
         if (attr != null) {

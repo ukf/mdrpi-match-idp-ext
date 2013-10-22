@@ -14,6 +14,7 @@
 
 package uk.org.ukfederation.mdrpi.filter;
 
+import uk.org.ukfederation.mdrpi.opensaml.impl.MdrpiImpl;
 import edu.internet2.middleware.shibboleth.common.config.BaseSpringNamespaceHandler;
 
 /**
@@ -26,6 +27,8 @@ public class FilterNamespaceHandler extends BaseSpringNamespaceHandler {
 
     /** {@inheritDoc} */
     public void init() {
+        // Borrow this thread to register our handler
+        MdrpiImpl.configure();
         registerBeanDefinitionParser(MdrpiFilterParser.TYPE_NAME,
                 new MdrpiFilterParser());
     }
