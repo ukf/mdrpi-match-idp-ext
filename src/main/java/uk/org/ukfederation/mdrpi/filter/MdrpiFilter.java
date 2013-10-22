@@ -26,7 +26,7 @@ import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.m
 public class MdrpiFilter extends AbstractMatchFunctor {
     
     /** This issuers to match against */
-    private String issuers[];
+    private String issuers[] = new String[0];
     
     private boolean matchIfMetadataSilent;
 
