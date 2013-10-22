@@ -14,8 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package uk.org.ukfederation.mdrpi.filter;
 
+import org.opensaml.saml2.common.Extensions;
+import org.opensaml.saml2.metadata.EntityDescriptor;
+import org.opensaml.xml.XMLObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.FilterProcessingException;
 import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.ShibbolethFilteringContext;
 import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.match.basic.AbstractMatchFunctor;
@@ -24,23 +32,69 @@ import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.m
  * This filter filters on mdrpi in the SP's metadata.
  */
 public class MdrpiFilter extends AbstractMatchFunctor {
-    
+
+    /** Class logger. */
+    private final Logger log = LoggerFactory.getLogger(MdrpiFilter.class);
+
     /** This issuers to match against */
     private String issuers[] = new String[0];
-    
+
+    /** What to say if no MDRPI is present */
     private boolean matchIfMetadataSilent;
 
+    /**
+     * Look for the {@link RegistrationInfo} inside the peer's entity description
+     * @param filterContext
+     * @return
+     * @throws FilterProcessingException 
+     */
+    private RegistrationInfo getRegistrationInfo(ShibbolethFilteringContext filterContext) throws FilterProcessingException {
+        if (null == filterContext.getAttributeRequestContext()) {
+            throw new FilterProcessingException("No Request Context on filter context");
+        }
+        
+        final EntityDescriptor peerEntity = filterContext.getAttributeRequestContext().getPeerEntityMetadata();
+        if (null == peerEntity) {
+            throw new FilterProcessingException("No Peer entity in request");
+        }
+        
+        final Extensions extensions = peerEntity.getExtensions();
+        if (null == extensions) {
+            throw new FilterProcessingException("No Extensions on Metadata");
+        }
+        
+        for (XMLObject object:extensions.getUnknownXMLObjects()) {
+            if (object instanceof RegistrationInfo) {
+               return (RegistrationInfo) object;
+            }
+        }
+        return null;
+    }
+    
     /** {@inheritDoc} */
     protected boolean doEvaluatePolicyRequirement(ShibbolethFilteringContext filterContext) throws FilterProcessingException {
-        // TODO Auto-generated method stub
+        final RegistrationInfo info = getRegistrationInfo(filterContext);
+        
+        if (info == null) {
+            log.debug("The peer's metadata did not contain an RegistrationInfo descriptor");
+            return matchIfMetadataSilent;
+        }
+        final String authority = info.getRegistrationAuthority();
+        log.debug("Peer's metadata has Registration Authority: {}", authority);
+        for (String issuer:issuers) {
+            if (issuer.matches(authority)) {
+                log.debug("Peer's metadata Registration Authority matches");
+                return true;
+            }
+        }
+        log.debug("Peer's metadata Registration Authority does not matches");
         return false;
     }
 
     /** {@inheritDoc} */
     protected boolean doEvaluateValue(ShibbolethFilteringContext filterContext, String attributeId,
             Object attributeValue) throws FilterProcessingException {
-        // TODO Auto-generated method stub
-        return false;
+        return doEvaluatePolicyRequirement(filterContext);
     }
 
     /**
