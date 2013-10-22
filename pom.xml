@@ -79,6 +79,15 @@
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+            <groupId>edu.internet2.middleware</groupId>
+            <artifactId>shibboleth-common</artifactId>
+            <version>1.4.0</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+        </dependency>
+		
 		<dependency>
 			<groupId>xmlunit</groupId>
 			<artifactId>xmlunit</artifactId>
