@@ -1,4 +1,4 @@
-mrdpi-filter
+mdrpi-filter
 ============
 
-Shibboleth IdP V2 filter plugin for mrdp elements
+Shibboleth IdP V2 filter plugin for mdrip elements
