@@ -1,7 +1,9 @@
 *.class
 
-# Package Files #
-target/*
+# Package Files
 *.jar
 *.war
 *.ear
+
+# Maven
+target/
