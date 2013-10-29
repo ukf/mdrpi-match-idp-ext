@@ -55,12 +55,12 @@ public class MdrpiFilter extends AbstractMatchFunctor {
         
         final EntityDescriptor peerEntity = filterContext.getAttributeRequestContext().getPeerEntityMetadata();
         if (null == peerEntity) {
-            throw new FilterProcessingException("No Peer entity in request");
+            throw new FilterProcessingException("No peer entity in request");
         }
         
         final Extensions extensions = peerEntity.getExtensions();
         if (null == extensions) {
-            throw new FilterProcessingException("No Extensions on Metadata");
+            throw new FilterProcessingException("No Extensions in peer metadata");
         }
         
         for (XMLObject object:extensions.getUnknownXMLObjects()) {
@@ -76,18 +76,18 @@ public class MdrpiFilter extends AbstractMatchFunctor {
         final RegistrationInfo info = getRegistrationInfo(filterContext);
         
         if (info == null) {
-            log.debug("The peer's metadata did not contain an RegistrationInfo descriptor");
+            log.debug("The peer's metadata did not contain a RegistrationInfo descriptor");
             return matchIfMetadataSilent;
         }
         final String authority = info.getRegistrationAuthority();
-        log.debug("Peer's metadata has Registration Authority: {}", authority);
+        log.debug("Peer's metadata has registration authority: {}", authority);
         for (String issuer:issuers) {
             if (issuer.matches(authority)) {
-                log.debug("Peer's metadata Registration Authority matches");
+                log.debug("Peer's metadata registration authority matches");
                 return true;
             }
         }
-        log.debug("Peer's metadata Registration Authority does not matches");
+        log.debug("Peer's metadata registration authority does not match");
         return false;
     }
 
