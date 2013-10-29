@@ -13,7 +13,7 @@
         <dependencySet>
             <outputDirectory>/</outputDirectory>
             <includes>
-                <include>uk.org.ukfederation.idp.ext:mrdpi-ext:jar:*</include>
+                <include>uk.org.ukfederation.idp.ext:mdrpi-ext:jar:*</include>
             </includes>
         </dependencySet>
     </dependencySets>
