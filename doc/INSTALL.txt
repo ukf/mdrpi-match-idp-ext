@@ -21,7 +21,7 @@ plugin and at every IdP upgrade.
 
 1. Shutdown the container running the IdP.
 
-2. Place the mdrpi-ext JAR file, located in this bundle, in to the 
+2. Place the mdrpi-match-idp-ext JAR file, located in this bundle, in to the 
    IdP distribution's lib directory
    
 3. Run the IdP's install script
