@@ -55,12 +55,13 @@ public class RegistrationAuthorityMatcher extends AbstractMatchFunctor {
         
         final EntityDescriptor peerEntity = filterContext.getAttributeRequestContext().getPeerEntityMetadata();
         if (null == peerEntity) {
+            log.info("Filtering on registration, but no peer metadata available");
             throw new FilterProcessingException("No peer entity in request");
         }
         
         final Extensions extensions = peerEntity.getExtensions();
         if (null == extensions) {
-            throw new FilterProcessingException("No Extensions in peer metadata");
+            return null;
         }
         
         for (XMLObject object:extensions.getUnknownXMLObjects()) {
