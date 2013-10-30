@@ -23,7 +23,7 @@ import uk.org.ukfederation.mdrpi.opensaml.impl.MdrpiImpl;
 import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.FilterProcessingException;
 import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.match.BaseTestCaseMetadata;
 
-/** {@link MdrpiFilter} unit test. */
+/** {@link RegistrationAuthorityMatcher} unit test. */
 public class FilterTestCase extends BaseTestCaseMetadata {
 
     private static final String REQUESTED_REG_INFO =  "http://www.swamid.se/";
@@ -43,7 +43,7 @@ public class FilterTestCase extends BaseTestCaseMetadata {
 
     public void testSWAMID() throws Exception {
         requestContext.setPeerEntityMetadata(metadataProvider.getEntityDescriptor(requesterEntityId));
-        final MdrpiFilter filter = new MdrpiFilter();
+        final RegistrationAuthorityMatcher filter = new RegistrationAuthorityMatcher();
         String[] array = {REQUESTED_REG_INFO, "foo",}; 
         filter.setIssuers(array);
         
@@ -54,7 +54,7 @@ public class FilterTestCase extends BaseTestCaseMetadata {
     
     public void testLigo() throws MetadataProviderException, FilterProcessingException {
         requestContext.setPeerEntityMetadata(metadataProvider.getEntityDescriptor(INCOMMON_SP));
-        final MdrpiFilter filter = new MdrpiFilter();
+        final RegistrationAuthorityMatcher filter = new RegistrationAuthorityMatcher();
         String[] array = {REQUESTED_REG_INFO, "foo",}; 
         filter.setIssuers(array);
         
@@ -65,7 +65,7 @@ public class FilterTestCase extends BaseTestCaseMetadata {
     
     public void testNone() throws MetadataProviderException, FilterProcessingException {
         requestContext.setPeerEntityMetadata(metadataProvider.getEntityDescriptor(NO_REGINFO_SP));
-        final MdrpiFilter filter = new MdrpiFilter();
+        final RegistrationAuthorityMatcher filter = new RegistrationAuthorityMatcher();
         String[] array = {REQUESTED_REG_INFO, INCOMMON_REG_INFO, "foo",}; 
         filter.setIssuers(array);
         

@@ -31,7 +31,7 @@ public class FilterNamespaceHandler extends BaseSpringNamespaceHandler {
     public void init() {
         // Borrow this thread to register our handler
         MdrpiImpl.configure();
-        registerBeanDefinitionParser(MdrpiFilterParser.TYPE_NAME,
-                new MdrpiFilterParser());
+        registerBeanDefinitionParser(RegistrationAuthorityMatcherParser.TYPE_NAME,
+                new RegistrationAuthorityMatcherParser());
     }
 }

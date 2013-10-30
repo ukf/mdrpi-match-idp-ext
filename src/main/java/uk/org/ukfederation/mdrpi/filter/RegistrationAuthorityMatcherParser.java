@@ -30,8 +30,8 @@ import org.w3c.dom.Element;
 
 import edu.internet2.middleware.shibboleth.common.config.attribute.filtering.BaseFilterBeanDefinitionParser;
 
-/** Spring bean definition parser that creates {@link MdrpiFilter} beans. */
-public class MdrpiFilterParser extends BaseFilterBeanDefinitionParser {
+/** Spring bean definition parser that creates {@link RegistrationAuthorityMatcher} beans. */
+public class RegistrationAuthorityMatcherParser extends BaseFilterBeanDefinitionParser {
 
     /** LDAP data connector type name. */
     public static final QName TYPE_NAME = new QName(FilterNamespaceHandler.NAMESPACE, "AttributeRequesterMDRPI");
@@ -43,11 +43,11 @@ public class MdrpiFilterParser extends BaseFilterBeanDefinitionParser {
     public static final String MATCH_IF_METADATA_SILENT_ATTR_NAME = "matchIfMetadataSilent";
 
     /** Class logger. */
-    private final Logger log = LoggerFactory.getLogger(MdrpiFilterParser.class);
+    private final Logger log = LoggerFactory.getLogger(RegistrationAuthorityMatcherParser.class);
 
     /** {@inheritDoc} */
-    protected Class<MdrpiFilter> getBeanClass(Element element) {
-        return MdrpiFilter.class;
+    protected Class<RegistrationAuthorityMatcher> getBeanClass(Element element) {
+        return RegistrationAuthorityMatcher.class;
     }
 
     /** {@inheritDoc} */

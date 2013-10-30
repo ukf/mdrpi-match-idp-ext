@@ -30,10 +30,10 @@ import edu.internet2.middleware.shibboleth.common.attribute.filtering.provider.m
 /**
  * This filter filters on mdrpi in the SP's metadata.
  */
-public class MdrpiFilter extends AbstractMatchFunctor {
+public class RegistrationAuthorityMatcher extends AbstractMatchFunctor {
 
     /** Class logger. */
-    private final Logger log = LoggerFactory.getLogger(MdrpiFilter.class);
+    private final Logger log = LoggerFactory.getLogger(RegistrationAuthorityMatcher.class);
 
     /** The issuers to match against. */
     private String[] issuers = new String[0];
