@@ -34,7 +34,8 @@ import edu.internet2.middleware.shibboleth.common.config.attribute.filtering.Bas
 public class RegistrationAuthorityMatcherParser extends BaseFilterBeanDefinitionParser {
 
     /** LDAP data connector type name. */
-    public static final QName TYPE_NAME = new QName(FilterNamespaceHandler.NAMESPACE, "AttributeRequesterRegistrationAuthority");
+    public static final QName TYPE_NAME =
+            new QName(FilterNamespaceHandler.NAMESPACE, "AttributeRequesterRegistrationAuthority");
 
     /** Name of the attribute carrying the Issuers list. */
     public static final String REGISTRARS_ATTR_NAME = "registrars";
