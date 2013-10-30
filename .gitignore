@@ -4,9 +4,15 @@
 *.jar
 *.war
 *.ear
+#emacs
+*~
 
 # Maven
 target/
+test-output/
+
+# AACLI
+src/test/aacli/logs/
 
 # Operating system stuff
 .DS_Store
