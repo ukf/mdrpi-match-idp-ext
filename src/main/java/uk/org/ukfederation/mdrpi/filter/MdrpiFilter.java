@@ -35,19 +35,20 @@ public class MdrpiFilter extends AbstractMatchFunctor {
     /** Class logger. */
     private final Logger log = LoggerFactory.getLogger(MdrpiFilter.class);
 
-    /** This issuers to match against */
-    private String issuers[] = new String[0];
+    /** The issuers to match against. */
+    private String[] issuers = new String[0];
 
-    /** What to say if no MDRPI is present */
+    /** What to say if no MDRPI is present. */
     private boolean matchIfMetadataSilent;
 
     /**
-     * Look for the {@link RegistrationInfo} inside the peer's entity description
+     * Look for the {@link RegistrationInfo} inside the peer's entity description.
      * @param filterContext
      * @return
      * @throws FilterProcessingException 
      */
-    private RegistrationInfo getRegistrationInfo(ShibbolethFilteringContext filterContext) throws FilterProcessingException {
+    private RegistrationInfo getRegistrationInfo(ShibbolethFilteringContext filterContext)
+            throws FilterProcessingException {
         if (null == filterContext.getAttributeRequestContext()) {
             throw new FilterProcessingException("No Request Context on filter context");
         }
@@ -71,7 +72,8 @@ public class MdrpiFilter extends AbstractMatchFunctor {
     }
     
     /** {@inheritDoc} */
-    protected boolean doEvaluatePolicyRequirement(ShibbolethFilteringContext filterContext) throws FilterProcessingException {
+    protected boolean doEvaluatePolicyRequirement(ShibbolethFilteringContext filterContext)
+            throws FilterProcessingException {
         final RegistrationInfo info = getRegistrationInfo(filterContext);
         
         if (info == null) {
@@ -106,7 +108,7 @@ public class MdrpiFilter extends AbstractMatchFunctor {
     /**
      * @param issuers The issuers to set.
      */
-    public void setIssuers(String issuers[]) {
+    public void setIssuers(String[] issuers) {
         this.issuers = issuers;
     }
 

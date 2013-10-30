@@ -25,7 +25,7 @@ import org.w3c.dom.Element;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 
 /**
- * A marshaller for {@link RegistrationInfo}
+ * A marshaller for {@link RegistrationInfo}.
  */
 public class RegistrationInfoMarshaller extends AbstractSAMLObjectMarshaller {
     /** {@inheritDoc} */

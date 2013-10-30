@@ -16,7 +16,7 @@
 
 /**
  * The package to define the 
- * <em>SAML V2.0 Metadata Extensions for Registration and Publication Information Version 1.0</em>
+ * <em>SAML V2.0 Metadata Extensions for Registration and Publication Information Version 1.0</em>.
  */
 
 package uk.org.ukfederation.mdrpi.opensaml;

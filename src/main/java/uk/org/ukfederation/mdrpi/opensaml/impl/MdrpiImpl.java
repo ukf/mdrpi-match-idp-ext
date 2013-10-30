@@ -30,7 +30,7 @@ import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
  */
 public class MdrpiImpl {
 
-    static public void configure() {
+    public static void configure() {
         Configuration.registerObjectProvider(RegistrationInfo.DEFAULT_ELEMENT_NAME, new RegistrationInfoBuilder(),
                 new RegistrationInfoMarshaller(), new RegistrationInfoUnmarshaller());
         Configuration.registerObjectProvider(RegistrationPolicy.DEFAULT_ELEMENT_NAME, new RegistrationPolicyBuilder(),

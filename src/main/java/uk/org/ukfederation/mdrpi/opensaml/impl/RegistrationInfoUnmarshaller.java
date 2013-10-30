@@ -27,7 +27,7 @@ import uk.org.ukfederation.mdrpi.opensaml.RegistrationInfo;
 import uk.org.ukfederation.mdrpi.opensaml.RegistrationPolicy;
 
 /**
- * An unmarshaller for {@link RegistrationInfo}
+ * An unmarshaller for {@link RegistrationInfo}.
  */
 public class RegistrationInfoUnmarshaller extends AbstractSAMLObjectUnmarshaller {
 

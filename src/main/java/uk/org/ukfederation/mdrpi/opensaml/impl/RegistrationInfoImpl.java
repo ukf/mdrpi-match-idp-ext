@@ -36,10 +36,10 @@ public class RegistrationInfoImpl extends AbstractSAMLObject implements Registra
     /** The policies. */
     private XMLObjectChildrenList<RegistrationPolicy> registrationPolicies;
 
-    /** The authority */
+    /** The authority. */
     private String registrationAuthority;
 
-    /** The registration instant */
+    /** The registration instant. */
     private DateTime registrationInstant;
 
     /**
