@@ -28,7 +28,7 @@
         </afp:AttributeRule>
 
         <afp:AttributeRule attributeID="epb">
-            <afp:PermitValueRule xsi:type="mdrpif:AttributeRequesterMDRPI" registrars="http://www.swamid.se/ jim" id="wibble"/>
+            <afp:PermitValueRule xsi:type="mdrpif:AttributeRequesterRegistrationAuthority" registrars="http://www.swamid.se/ jim" id="wibble"/>
         </afp:AttributeRule>
 
     </afp:AttributeFilterPolicy>
