@@ -28,8 +28,18 @@ import uk.org.ukfederation.mdrpi.opensaml.UsagePolicy;
 /**
  * Class to bring together the registration of the providers.
  */
-public class MdrpiImpl {
+public final class MdrpiImpl {
+    
+    /**
+     * Constructor.
+     *
+     */
+    private MdrpiImpl() {
+    }
 
+    /**
+     * This function registers the handlers - only needed because this function is a plugin.
+     */
     public static void configure() {
         Configuration.registerObjectProvider(RegistrationInfo.DEFAULT_ELEMENT_NAME, new RegistrationInfoBuilder(),
                 new RegistrationInfoMarshaller(), new RegistrationInfoUnmarshaller());

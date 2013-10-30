@@ -27,10 +27,10 @@ public class UsagePolicyImpl extends LocalizedURIImpl implements UsagePolicy {
 
     /**
      * Constructor.
-     *
-     * @param namespaceURI
-     * @param elementLocalName
-     * @param namespacePrefix
+     * {@inheritDoc}
+     * @param namespaceURI the name space.
+     * @param elementLocalName the local name
+     * @param namespacePrefix the prefix
      */
     protected UsagePolicyImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
         super(namespaceURI, elementLocalName, namespacePrefix);

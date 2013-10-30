@@ -43,8 +43,8 @@ public class RegistrationAuthorityMatcher extends AbstractMatchFunctor {
 
     /**
      * Look for the {@link RegistrationInfo} inside the peer's entity description.
-     * @param filterContext
-     * @return
+     * @param filterContext the context of the operation
+     * @return The registration info for the SP in the context
      * @throws FilterProcessingException 
      */
     private RegistrationInfo getRegistrationInfo(ShibbolethFilteringContext filterContext)
@@ -98,32 +98,32 @@ public class RegistrationAuthorityMatcher extends AbstractMatchFunctor {
         return doEvaluatePolicyRequirement(filterContext);
     }
 
-    /**
+    /** get the issuers.
      * @return Returns the issuers.
      */
     public String[] getIssuers() {
         return issuers;
     }
 
-    /**
-     * @param issuers The issuers to set.
+    /** Set the issuers.
+     * @param theIssuers The issuers to set.
      */
-    public void setIssuers(String[] issuers) {
-        this.issuers = issuers;
+    public void setIssuers(String[] theIssuers) {
+        issuers = theIssuers;
     }
 
-    /**
+    /** Get what to do if there is no mdrpi/extensions.
      * @return Returns the matchIfMetadataSilent.
      */
     public boolean isMatchIfMetadataSilent() {
         return matchIfMetadataSilent;
     }
 
-    /**
-     * @param matchIfMetadataSilent The matchIfMetadataSilent to set.
+    /** Set what to do if there is no mdrpi/extensions.
+     * @param value The matchIfMetadataSilent to set.
      */
-    public void setMatchIfMetadataSilent(boolean matchIfMetadataSilent) {
-        this.matchIfMetadataSilent = matchIfMetadataSilent;
+    public void setMatchIfMetadataSilent(boolean value) {
+        matchIfMetadataSilent = value;
     }
 
 }

@@ -27,10 +27,10 @@ public class RegistrationPolicyImpl extends LocalizedURIImpl implements Registra
 
     /**
      * Constructor.
-     *
-     * @param namespaceURI
-     * @param elementLocalName
-     * @param namespacePrefix
+     * {@inheritDoc}
+     * @param namespaceURI the name space.
+     * @param elementLocalName the local name
+     * @param namespacePrefix the prefix
      */
     protected RegistrationPolicyImpl(String namespaceURI, String elementLocalName, String namespacePrefix) {
         super(namespaceURI, elementLocalName, namespacePrefix);
