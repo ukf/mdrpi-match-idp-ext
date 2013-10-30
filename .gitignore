@@ -7,3 +7,7 @@
 
 # Maven
 target/
+
+# Operating system stuff
+.DS_Store
+
