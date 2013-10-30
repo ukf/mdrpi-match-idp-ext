@@ -37,7 +37,7 @@ public class RegistrationAuthorityMatcherParser extends BaseFilterBeanDefinition
     public static final QName TYPE_NAME = new QName(FilterNamespaceHandler.NAMESPACE, "AttributeRequesterMDRPI");
 
     /** Name of the attribute carrying the Issuers list. */
-    public static final String ISSUERS_ATTR_NAME = "issuers";
+    public static final String REGISTRARS_ATTR_NAME = "registrars";
 
     /** Name of the attribute carrying the boolean to flag behaviour if the metadata MDRPI. */
     public static final String MATCH_IF_METADATA_SILENT_ATTR_NAME = "matchIfMetadataSilent";
@@ -63,7 +63,7 @@ public class RegistrationAuthorityMatcherParser extends BaseFilterBeanDefinition
         log.debug("MDRPI Filter: Match if Metadata silent = {}", matchIfSilent);
         builder.addPropertyValue("matchIfMetadataSilent", matchIfSilent);
 
-        final Attr attr = configElement.getAttributeNodeNS(null, ISSUERS_ATTR_NAME);
+        final Attr attr = configElement.getAttributeNodeNS(null, REGISTRARS_ATTR_NAME);
         if (attr != null) {
             final List<String> issuers = XMLHelper.getAttributeValueAsList(attr);
             log.debug("MDRPI Filter: Issuers = {}", issuers);
