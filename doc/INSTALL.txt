@@ -52,3 +52,60 @@ will carry over through upgrades.
      lacking a registrationAuthority should result in a match. The default value is "false".
      Note: if matchIfMetadataSilent is set to "true", the rule will also match in the case
      where no metadata is available for the relying party.
+
+Configuration Examples
+=============================================
+
+A match against the relying party's registration authority will most often be used as part of
+a PolicyRequirementRule. For example, the following policy would be enabled for all entities
+registered by the UK federation:
+
+    <AttributeFilterPolicy id="regauth.ukf">
+        <PolicyRequirementRule xsi:type="mdrpif:AttributeRequesterMDRPI"
+            issuers="http://ukfederation.org.uk"/>
+
+        ... attribute rules here ...
+        
+    </AttributeFilterPolicy>
+
+In this next example, the policy will be active for any entities registered by either of the
+registration authorities listed; note the space-separated list of URIs to match against:
+
+    <AttributeFilterPolicy id="regauth.one.or.two">
+        <PolicyRequirementRule xsi:type="mdrpif:AttributeRequesterMDRPI"
+            issuers="http://federation1.org http://federation2.org"/>
+
+        ... attribute rules here ...
+        
+    </AttributeFilterPolicy>
+
+The following example demonstrates a policy which will be active for all entities registered
+by a registration authority *other than* the UK federation:
+
+    <AttributeFilterPolicy id="regauth.not.ukf">
+        <PolicyRequirementRule xsi:type="basic:NOT">
+            <basic:Rule xsi:type="mdrpif:AttributeRequesterMDRPI"
+                issuers="http://ukfederation.org.uk"/>
+        </PolicyRequirementRule>
+
+        ... attribute rules here ...
+        
+    </AttributeFilterPolicy>
+
+It can also be useful to match the relying party's registration authority in the
+context of an AttributeRule, as in the following example:
+
+    <AttributeFilterPolicy id="attr.by.regauth">
+        ... policy requirement rule here ...
+        
+        <AttributeRule attributeID="eduPersonTargetedID">
+            <PermitValueRule xsi:type="xsi:type="mdrpif:AttributeRequesterMDRPI"
+                issuers="http://ukfederation.org.uk"/>
+        </AttributeRule>
+            
+    </AttributeFilterPolicy>
+    
+In this case, the registration authority match applies only to the release of
+the eduPersonTargetedID attribute: all values of the attribute will be
+released to entities registered by the UK federation, subject to the
+overall policy requirement rule in force.
