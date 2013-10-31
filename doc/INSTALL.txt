@@ -44,14 +44,17 @@ will carry over through upgrades.
 2. Add the following schema locations to the existing whitespace-separated list:
    http://ukfederation.org.uk/schemas/mdrpi/filter classpath:/schema/mdrpi-attribute-filter.xsd
 
-3. Match a relying party's registrationAuthority value using a rule of type xsi:type="mdrpif:AttributeRequesterMDRPI"
+3. Match a relying party's registrationAuthority value using a rule of type
+   xsi:type="mdrpif:AttributeRequesterRegistrationAuthority"
 
-   * Include an "issuers" attribute containing a space-separated list of one or more registrationAuthority values to match.
+   * Include a "registrars" attribute containing a space-separated list of one or more
+     registrationAuthority values to match.
    
    * Optionally, include a "matchIfMetadataSilent" attribute to specify whether metadata
      lacking a registrationAuthority should result in a match. The default value is "false".
-     Note: if matchIfMetadataSilent is set to "true", the rule will also match in the case
-     where no metadata is available for the relying party.
+     
+Note: if the relying party is anonymous because no metadata is available for it at all,
+use of AttributeRequesterRegistrationAuthority will mean that no attributes will be released.
 
 Configuration Examples
 =============================================
@@ -61,8 +64,8 @@ a PolicyRequirementRule. For example, the following policy would be enabled for 
 registered by the UK federation:
 
     <AttributeFilterPolicy id="regauth.ukf">
-        <PolicyRequirementRule xsi:type="mdrpif:AttributeRequesterMDRPI"
-            issuers="http://ukfederation.org.uk"/>
+        <PolicyRequirementRule xsi:type="mdrpif:AttributeRequesterRegistrationAuthority"
+            registrars="http://ukfederation.org.uk"/>
 
         ... attribute rules here ...
         
@@ -72,8 +75,8 @@ In this next example, the policy will be active for any entities registered by e
 registration authorities listed; note the space-separated list of URIs to match against:
 
     <AttributeFilterPolicy id="regauth.one.or.two">
-        <PolicyRequirementRule xsi:type="mdrpif:AttributeRequesterMDRPI"
-            issuers="http://federation1.org http://federation2.org"/>
+        <PolicyRequirementRule xsi:type="mdrpif:AttributeRequesterRegistrationAuthority"
+            registrars="http://federation1.org http://federation2.org"/>
 
         ... attribute rules here ...
         
@@ -84,8 +87,8 @@ by a registration authority *other than* the UK federation:
 
     <AttributeFilterPolicy id="regauth.not.ukf">
         <PolicyRequirementRule xsi:type="basic:NOT">
-            <basic:Rule xsi:type="mdrpif:AttributeRequesterMDRPI"
-                issuers="http://ukfederation.org.uk"/>
+            <basic:Rule xsi:type="mdrpif:AttributeRequesterRegistrationAuthority"
+                registrars="http://ukfederation.org.uk"/>
         </PolicyRequirementRule>
 
         ... attribute rules here ...
@@ -99,8 +102,8 @@ context of an AttributeRule, as in the following example:
         ... policy requirement rule here ...
         
         <AttributeRule attributeID="eduPersonTargetedID">
-            <PermitValueRule xsi:type="xsi:type="mdrpif:AttributeRequesterMDRPI"
-                issuers="http://ukfederation.org.uk"/>
+            <PermitValueRule xsi:type="xsi:type="mdrpif:AttributeRequesterRegistrationAuthority"
+                registrars="http://ukfederation.org.uk"/>
         </AttributeRule>
             
     </AttributeFilterPolicy>
