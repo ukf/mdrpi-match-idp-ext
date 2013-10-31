@@ -263,5 +263,38 @@
         </profile>
 	</profiles>
 
+    <!-- Project Metadata -->
+    <url>https://github.com/ukf/mdrpi-match-idp-ext</url>
+
+    <inceptionYear>2013</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/ukf/mdrpi-match-idp-ext/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>rdw</id>
+            <name>Rod Widdowson</name>
+            <organization>Steading System Software</organization>
+            <organizationUrl>http://SteadingSoftware.com</organizationUrl>
+            <timezone>0</timezone>
+        </developer>
+        <developer>
+            <id>iay</id>
+            <name>Ian Young</name>
+            <organization>Ian A. Young</organization>
+            <organizationUrl>http://iay.org.uk</organizationUrl>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
 
 </project>
