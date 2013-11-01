@@ -16,6 +16,19 @@ It may function on earlier releases in the v2.x series, but this is not supporte
 Installation/Upgrade Instructions
 =============================================
 
+You can download ZIP and compressed TAR versions of this package from the
+project's GitHub releases page:
+
+    https://github.com/ukf/mdrpi-match-idp-ext/releases
+    
+The artifacts are signed using one of the developers' PGP keys, available
+from the public key servers or from the following location:
+
+    https://raw.github.com/ukf/mdrpi-match-idp-ext/master/doc/PGP_KEYS.asc
+    
+DO NOT use the copy of this file included within the package to validate
+the package.
+
 The following steps must be performed during the initial installation of this
 plugin and at every IdP upgrade.
 

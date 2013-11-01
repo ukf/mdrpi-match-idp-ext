@@ -11,6 +11,8 @@ This plugin was developed for v2.4.x of the Shibboleth identity provider. It may
 
 ## Installation and Configuration
 
+You can download `.zip` and `.tar.gz` distributions of the plugin from the [GitHub project's releases page](https://github.com/ukf/mdrpi-match-idp-ext/releases). These are signed using one of the developers' PGP keys, available from the [`PGP_KEYS.asc`](doc/PGP_KEYS.asc) file in the `doc` directory.
+
 For installation and configuration instructions, refer to the [`INSTALL.txt`](doc/INSTALL.txt) file in the `doc` directory.
 
 ## Copyright and License
