@@ -50,13 +50,13 @@ public class RegistrationAuthorityMatcher extends AbstractMatchFunctor {
     private RegistrationInfo getRegistrationInfo(ShibbolethFilteringContext filterContext)
             throws FilterProcessingException {
         if (null == filterContext.getAttributeRequestContext()) {
-            throw new FilterProcessingException("No Request Context on filter context");
+            return null;
         }
         
         final EntityDescriptor peerEntity = filterContext.getAttributeRequestContext().getPeerEntityMetadata();
         if (null == peerEntity) {
             log.info("Filtering on registration, but no peer metadata available");
-            throw new FilterProcessingException("No peer entity in request");
+            return null;
         }
         
         final Extensions extensions = peerEntity.getExtensions();
