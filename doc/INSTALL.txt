@@ -63,11 +63,9 @@ will carry over through upgrades.
    * Include a "registrars" attribute containing a space-separated list of one or more
      registrationAuthority values to match.
    
-   * Optionally, include a "matchIfMetadataSilent" attribute to specify whether metadata
-     lacking a registrationAuthority should result in a match. The default value is "false".
-     
-Note: if the relying party is anonymous because no metadata is available for it at all,
-use of AttributeRequesterRegistrationAuthority will mean that no attributes will be released.
+   * Optionally, include a "matchIfMetadataSilent" attribute to specify whether an "anonymous"
+     service provider, or one lacking a registrationAuthority, should result in a match.
+     The default value is "false".
 
 Configuration Examples
 =============================================
